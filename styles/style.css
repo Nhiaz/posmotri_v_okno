@@ -41,6 +41,10 @@ ol {
   list-style: none;
 }
 
+.result{
+  margin-top: 4rem;
+}
+
 .content{
   display: flex;
   gap:30px;
@@ -114,6 +118,12 @@ ol {
   position: relative;
 }
 
+.search-form__fieldset{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 .search-form__fieldset-title{
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
@@ -126,6 +136,7 @@ ol {
   line-height: 94%;
   letter-spacing: 0%;
   text-transform: uppercase;
+  padding-bottom: 26px;
 }
 
 .content__accent{
