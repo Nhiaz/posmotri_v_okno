@@ -58,11 +58,10 @@ ol {
   width: 100%;
 }
 
-.search-form{
+.search-form {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-top:16px;
+ 
 }
 
 .content__details{
@@ -163,6 +162,7 @@ ol {
   width: fit-content;
   flex-wrap: nowrap;
   flex-direction: row;
+  cursor: pointer;
 }
 
 .search-form__checkbox-list{
@@ -183,6 +183,7 @@ ol {
   border-color: #fff;
   border-style: solid none;
   color: #fff;
+  width: 225px;
 }
 .search-form__textfield:has(:focus-visible){
   border: 2px solid #fff;
@@ -252,4 +253,12 @@ ol {
 
 .search-form__fieldset:nth-child(2) .search-form__label-text:last-child {
   margin-right: 10px;
+}
+
+.content__list-item:hover{
+  cursor: pointer;
+}
+
+.content__list-item:active{
+  background-color: rgb(84, 80, 80);
 }
