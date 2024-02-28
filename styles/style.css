@@ -19,6 +19,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 h1,
@@ -33,6 +34,7 @@ blockquote,
 fieldset {
   margin: 0;
   padding: 0;
+  border: none;
 }
 
 ul,
@@ -40,7 +42,135 @@ ol {
   list-style: none;
 }
 
-/* скрывает лейблы и браузерные чекбоксы */
+.content{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 30px;
+  
+}
+
+.search-form{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 16px;
+  block-size:54px;
+}
+
+.content__list{
+  overflow: auto;
+}
+
+.content__details{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-height: 536px;
+  height: 100%;
+  width: 100%;
+}
+
+.result__video-container{
+  position: relative;
+  width: 711px;
+  height: 386px;
+}
+
+.result__video{
+  height: 100%;
+  width: 100%;
+}
+
+.content__list-item:not(:last-child){
+  margin-bottom: 34px;
+}
+
+.content__video-card{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.content__video-card:active{
+  background-color: rgb(84, 80, 80);
+}
+
+.content__video-card:hover{
+  text-decoration: underline;
+}
+
+.content__card-link_current{
+  background-color: rgb(84, 80, 80);
+}
+
+.content__video-card-thumbnail{
+  width: 194px;
+  height: 103px;
+}
+
+.content__video-card-description-container{
+  width: 100%;
+  height: 100%;
+}
+
+.search-form__fieldset-title{
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.button{
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  min-height: 34px;
+  width: 194px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  width: 100%;
+  align-self: flex-end;
+}
+
+.button:active{
+  background-color: rgb(84, 80, 80);
+}
+
+.button:hover{
+  text-decoration: underline;
+}
+
+.button:focus{
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.title{
+  font-family: 'Oswald', sans-serif;
+  font-size: 75px;
+  font-weight: 700;
+  line-height: 94%;
+  text-transform: uppercase;
+}
+
+.content__accent{
+  color: rgb(84, 80, 80);
+}
+
+.content__card-link{
+  text-decoration: none;
+  color: #fff;
+}
+
+.content__video-card-description{
+  line-height: 16.2px;
+  margin-top: 6px;
+}
+
 .visually-hidden {
   position: absolute;
   inline-size: 1px;
@@ -51,262 +181,68 @@ ol {
   white-space: nowrap;
 } 
 
-
-/* общий контейнер */
-.content {
+.search-form__label{
   display: flex;
-  align-items: end;
-  inline-size: 1140px;
-  column-gap: 30px;
-}
-
-/* контейнер с видео и формой поиска */
-.result {
-  display: flex;
-  flex-direction: column;
-  row-gap: 13px;
-}
-
-/* контейнер с видео */
-.result__video-container {
-  block-size: 386px;
-  inline-size: 711px ;
-  position: relative;
-}
-
-.result__video {
-  object-fit: cover;
-  object-position: center;
-  block-size: 100%;
-  inline-size: 100%;
-}
-
-/* контейнер с формой поиска */
-.search-form {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  block-size: 54px;
-}
-
-/* сбрасывание рамки */
-.search-form__fieldset {
-  border: none;
-}
-
-.search-form__fieldset-title {
-  font-size: 18px;
-  font-weight: 400;
-  padding: 4px 0;
-}
-
-.search-form__label {
-  display: flex;
-  inline-size: fit-content;
+  flex-direction: row;
+  width: fit-content;
   cursor: pointer;
-  column-gap: 5px;
 }
 
-/* убираем рамку в фокусе */
-.search-form__label:focus {
-  outline: none;
-}
-
-/* добавляем рамку */
-.search-form__label:has(:focus-visible) {
-  outline: 1px solid #FFFFFF;
-}
-
-/* подчеркиваем текст у чекбокса при наведении на лейбл */
-.search-form__label:hover .search-form__label-text {
-  text-decoration: underline;
-}
-
-.search-form__textfield {
-  border: none;
-  border-block-start: 1px solid #FFFFFF;
-  border-block-end: 1px solid #FFFFFF;
-  background: transparent;
-  color: #FFFFFF;
-  font-family: inherit;
-  font-size: 18px;
-  inline-size: 225px;
-  block-size: 27px;
-  appearance: none;
-  padding: 0;
-}
-
-.search-form__textfield::placeholder {
-  font-size: 18px;
-}
-
- /* выставляем лейблы рядом */
- .search-form__checkbox-list {
-  display: flex;
-  column-gap: 15px;
-  justify-content: space-between;
-  padding-top: 2px;
-}
-
-/* новый чекбокс */
-.search-form__pseudo-checkbox {
-  block-size: 19px;
-  inline-size: 19px;
-  outline: 1px solid #FFFFFF;
-  display: block;
-}
-
-.search-form__checkbox:checked + .search-form__pseudo-checkbox::before {
-  content: "";
-  display: block;
-  background-color: #FFFFFF;
-  inline-size: 15px;
-  block-size: 15px;
-  margin: 2px;
-}
-
-.button {
-  border: 1px solid #FFFFFF;
-  background: transparent;
-  color: #FFFFFF;
+.search-form__textfield{
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
-  font-weight: 700;
-  text-align: center;
-  block-size: 34px;
-  cursor: pointer;
+  font-weight: 400;
+  line-height: 22px;
+  background-color: transparent;
+  border-color: #fff;
+  border-width: 1px;
+  border-style: solid none;
+  width: 225px;
+  appearance: none;
 }
 
-/*   состояния кнопок   */
-.button:focus {
-  outline: none;
-}
-
-.button:active {
-  background-color: #545050;
-}
-
-.button:hover {
-  text-decoration: underline;
-}
-
-.button:focus-visible {
-  outline: 1px solid #FFFFFF;
+.search-form__textfield:focus{
+  outline: 1px solid #fff;
   outline-offset: 1px;
 }
 
-/* маленькая кнопка */
-.search-form__submit-button {
-  inline-size: 194px;
-  align-self: end;
-}
-
-/* контейнер с заголовком и городами */
-.content__details {
+.search-form__checkbox-list{
   display: flex;
-  flex-direction: column;
-  row-gap: 18px;
-  block-size: 100%;
-  inline-size: 100%;
+  gap: 17px;
+  margin-top: 5px;
 }
 
-.title {
-  font-family: 'Oswald', sans-serif;
-  font-size: 75px;
-  font-weight: 700;
-  line-height: 94%;
-  text-transform: uppercase;
+.search-form__fieldset:nth-of-type(2) .search-form__pseudo-checkbox:nth-of-type(1) { 
+  display: inline-block; 
+  position: relative; 
+  width: 20px; 
+  height: 20px; 
+  margin-right: 5px; 
+  vertical-align: middle; 
+  border: 2px solid #fff; 
+  background-color: transparent; 
+  cursor: pointer; 
+} 
+ 
+.search-form__checkbox:checked + search-form__pseudo-checkbox::before { 
+  position: absolute; 
+  width: 13px; 
+  height: 13px; 
+  content: ""; 
+  background-color: #fff; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+  background-size: contain; 
+  top:50%; 
+  left: 50%; 
+  transform: translate(-50%,-50%); 
 }
 
-.content__accent {
-  color: #545050;
-}
-
-/* контейнер со списком городов */
-.content__list {
-  block-size: 298px;
-  overflow: auto;
-  position: relative;
-}
-
-/* скроем скроллбар */
-.content__list::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-}
-
-/* задаем нижний отступ для всех пунктов списка, кроме последнего пункта с кнопкой */
-.content__list-item:not(:last-child) {
-  margin-block-end: 30px;
-}
-
-/* ссылка-обёртка карточки с городом */
-.content__card-link {
-  text-decoration: none;
-  color: #FFFFFF;
-  display: block;
-  margin: 2px;
-}
-
-/*   состояния карточек   */
-.content__card-link:focus {
-  outline: none;
-}
-
-.content__card-link:hover {
+.search-form__label:hover{
   text-decoration: underline;
-  text-underline-position: under;
 }
 
-.content__card-link:focus-visible {
-  outline: 1px solid #FFFFFF;
-}
-
-.content__card-link:active {
-  background-color: #545050;
-}
-
-/* фон для активной карточки */
-.content__card-link_current {
-  background-color: #545050;
-}
-
-/* карточка с городом с размерами */
-.content__video-card {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  inline-size: 394px;
-  block-size: 107px;
-  padding: 2px;
-}
-
-.content__video-card-description-container {
-  flex-grow: 1;
-}
-
-.content__video-card-title {
-  font-family: 'Oswald', sans-serif;
-  font-size: 30px;
-  text-transform: uppercase;
-  margin-block-end: 6px;
-  line-height: 30px;
-}
-
-.content__video-card-description {
-  line-height: 0.9;
-}
-
- /* отрицательный отступ сделан для того, чтоб картинка выходила за пределы карточки как по макету */
-.content__video-card-thumbnail {
-  block-size: 103px;
-  inline-size: 194px;
-  object-fit: cover;
-  object-position: center;
-  margin-inline-end: -5px;
-}
-
-/* большая кнопка */
-.more-button {
-  inline-size: 100%;
+.search-form__label:focus{
+  outline: 1px solid #fff;
+  outline-offset: 1px;
 }
